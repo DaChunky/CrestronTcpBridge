@@ -1,0 +1,7 @@
+FROM debian:buster
+COPY ./src/* /home/
+ENV SERVER_IP=
+ENV SERVER_PORT=
+ENV ACCESS_CODE=
+RUN chmod 777 /home/crebrid
+ENTRYPOINT /bin/bash /home/crebrid_entrypoint.sh $SERVER_IP $SERVER_PORT $ACCESS_CODE

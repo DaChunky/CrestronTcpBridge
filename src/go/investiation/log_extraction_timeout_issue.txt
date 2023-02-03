@@ -1,0 +1,39 @@
+Log from server:
+    --------------------------------------------------------------------------------------------------------------------------------------
+    ipc_server->StartListening [go call] => ipc_server->serverClient
+        2023/01/26 16:35:49 DEBUG        [IPCSERVER]: new client register request --> 
+        --------------------------------------------------------------------------------------------------------------------------------------
+        ipc_commands.ReadUntilEOF
+            2023/01/26 16:35:49 DEBUG        [READEOF] try to read from buffer
+            2023/01/26 16:35:49 DEBUG        [READEOF] read [63] bytes
+            2023/01/26 16:35:49 DEBUG        [ReadUntilEOF] read [63] bytes from stream
+        --------------------------------------------------------------------------------------------------------------------------------------
+        ipc_commands.ClientCommandFromRequest
+            2023/01/26 16:35:49 DEBUG        [DESERIALIZE] received decrypted and deserialized data: {"cmd":0,"id":"","digitalPorts":[]}
+        --------------------------------------------------------------------------------------------------------------------------------------
+        is.requests <- ClientRequest
+        2023/01/26 16:35:49 DEBUG        [READEOF] try to read from buffer
+
+Log from client:
+    2023/01/26 16:35:49 INFO         ---------------------------------------
+    2023/01/26 16:35:49 INFO         application started
+    2023/01/26 16:35:49 MAIN         [main] application started
+    2023/01/26 16:35:49 MAIN         [execute] start client
+    2023/01/26 16:35:49 DEBUG        [0] server
+    2023/01/26 16:35:49 DEBUG        [1] -ip=192.168.178.158
+    2023/01/26 16:35:49 DEBUG        [2] set
+    2023/01/26 16:35:49 DEBUG        [3] -reg=d
+    2023/01/26 16:35:49 DEBUG        [4] -port=007
+    2023/01/26 16:35:49 INFO         set service IP to: 192.168.178.158
+    2023/01/26 16:35:49 DEBUG        perform cmd [set]
+    2023/01/26 16:35:49 DEBUG        return command: IP:192.168.178.158->Cmd:set->Reg:d->Port:7->Str:->Int:0
+    2023/01/26 16:35:49 MAIN         [execute] arguments parsed: &{192.168.178.158 1 0 7  0}
+    2023/01/26 16:35:49 WARNING      [SETTINGS] unable to read settings from: /etc/crebrid/crebrid.conf
+    2023/01/26 16:35:49 DEBUG        found entry: ip
+    2023/01/26 16:35:49 DEBUG        found entry: port
+    2023/01/26 16:35:49 DEBUG        found entry: ipcPort
+    2023/01/26 16:35:49 DEBUG        found entry: accessCode
+    2023/01/26 16:35:49 MAIN         try to connect to service: 192.168.178.32:65432
+    2023/01/26 16:35:49 INFO         [IPCCLIENT]: successfully connected to 192.168.178.158:65432
+    2023/01/26 16:35:49 DEBUG        data to encrypt: {"cmd":0,"id":"","digitalPorts":[]}
+    2023/01/26 16:35:49 DEBUG        [READEOF] try to read from buffer

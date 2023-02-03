@@ -1,0 +1,31 @@
+# has to be placed at /lib/systemd/system/
+[Unit]
+Description=Crestron Bridge Service
+ConditionPathExists=/bin/crebrid
+After=network.target
+ 
+[Service]
+# standard type daemons
+Type=simple
+# absolute path to the executable file
+ExecStart=/bin/crebrid
+# make sure log location exists
+ExecStartPre=/bin/mkdir -p /var/log/crebrid
+# make sure config location exists
+ExecStartPre=/bin/mkdir -p /etc/crebrid
+# make config location accessible for all users and groups, incl. writing permissions
+ExecStartPre=/bin/chmod 666 /etc/crebrid
+# make a little break before attempting to restart on failure
+RestartSec=10
+# restart service only in case of unexpected failure
+Restart=on-abnormal
+# Prevent service restart in case of systemctl stop call
+RestartPreventExitStatus=0 1
+# Make sure service is running under crebrid user
+#User=crebrid
+#Group=crebrid
+# set maxium of accessible memory pages
+LimitNOFILE=1024
+ 
+[Install]
+WantedBy=multi-user.target
